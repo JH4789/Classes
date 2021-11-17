@@ -3,11 +3,11 @@
 using namespace std;
 
 class Media {
-  public:
-  Title();
+  public:  
   Title(char*);
   char* getTitle();
 private:
   char* title;
+  
 };
   
