@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Media.h"
+#include "Music.h"
 #include <cstring>
 using namespace std;
 
@@ -9,6 +10,7 @@ void printTitles(vector<Media*> &);
 void addMedia(vector<Media*> &);
 int main(){
   char input[10];
+  
   char commandinput[10];
   bool running = true;
   int roomcount = 0;
@@ -33,6 +35,7 @@ int main(){
     else {
       cout << "Please enter a valid input";
     }
+  
 }
 
 
@@ -40,14 +43,21 @@ int main(){
 void printTitles(vector<Media*> &newv){
   for(vector<Media*>::iterator it = newv.begin(); it != newv.end(); it++) {
     cout << (*it)->getTitle() << endl;
+    cout << (*it)->getYear() << endl;
   }
 }
 void addMedia(vector<Media*> &newv){
   Media* newmedia = new Media();
   char input[100];
+  int yearpublished;
   cout << "Please enter the title of your media" <<endl;
-    cin >> input;
-    newmedia->Title(input);
-    newv.push_back(newmedia);
-   
+  cin >> input;
+  newmedia->Title(input);
+  cout << "Please enter the year that your media was created" << endl;
+  cin >> yearpublished;
+  newmedia->Year(yearpublished);
+  newv.push_back(newmedia);
+  
+  
+  
 }

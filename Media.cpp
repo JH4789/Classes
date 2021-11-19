@@ -4,11 +4,16 @@
 using namespace std;
 
 
-Media::Title(char* newtitle){
+void Media::Title(char* newtitle){
   title = new char[100];
   strcpy(title, newtitle);
-  return 0;
+}
+void Media::Year(int newyear){
+  year = newyear;
 }
 char* Media::getTitle() {
   return title;
+}
+int Media::getYear() {
+  return year;
 }

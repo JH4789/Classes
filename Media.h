@@ -4,10 +4,12 @@ using namespace std;
 
 class Media {
   public:  
-  Title(char*);
-  char* getTitle();
+  virtual void Title(char*);
+  virtual void Year(int);
+  virtual char* getTitle();
+  virtual int getYear();
 private:
   char* title;
-  
+  int year;
 };
   
