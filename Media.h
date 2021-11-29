@@ -1,3 +1,6 @@
+
+#ifndef MEDIAHEADER
+#define MEDIAHEADER
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -12,4 +15,5 @@ private:
   char* title;
   int year;
 };
+#endif
   

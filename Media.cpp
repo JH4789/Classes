@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "Media.h"
+#include "Music.h"
 using namespace std;
 
 

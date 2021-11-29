@@ -1,7 +1,14 @@
+#ifndef MUSICHEADER
+#define MUSICHEADER
 #include <iostream>
-#include "parent.h"
+#include "Media.h"
 using namespace std;
+
 class Music : public Media {
 public:
-  child();
-}
+  virtual void addArtistName(char*);
+  virtual char* getArtistName();
+private:
+  char* artistName;
+};
+#endif
