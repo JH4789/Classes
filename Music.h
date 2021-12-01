@@ -7,8 +7,10 @@ using namespace std;
 class Music : public Media {
 public:
   virtual void addArtistName(char*);
-  virtual char* getArtistName();
+  virtual void print();
+  virtual void addDuration(int);
 private:
   char* artistName;
+  int duration;
 };
 #endif

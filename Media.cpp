@@ -12,9 +12,14 @@ void Media::Title(char* newtitle){
 void Media::Year(int newyear){
   year = newyear;
 }
-char* Media::getTitle() {
+char* Media::getTitle(){
   return title;
 }
-int Media::getYear() {
+int Media::getYear(){
   return year;
 }
+void Media::print() {
+  cout << year << endl;
+  cout << title <<endl;
+}
+

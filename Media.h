@@ -1,4 +1,3 @@
-
 #ifndef MEDIAHEADER
 #define MEDIAHEADER
 #include <iostream>
@@ -9,9 +8,10 @@ class Media {
   public:  
   virtual void Title(char*);
   virtual void Year(int);
+  virtual void print();
   virtual char* getTitle();
   virtual int getYear();
-private:
+  protected:
   char* title;
   int year;
 };

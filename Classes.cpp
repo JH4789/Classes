@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 #include <vector>
 #include "Media.h"
 #include "Music.h"
@@ -6,7 +7,7 @@
 using namespace std;
 
 
-void printTitles(vector<Media*> &);
+void searchTitles(vector<Media*> &);
 void addMedia(vector<Media*> &);
 int main(){
   char input[10];
@@ -25,8 +26,8 @@ int main(){
   if(strcmp(commandinput, "ADD") == 0){
     addMedia(v);   
    }
-   else if(strcmp(commandinput, "PRINT") == 0) {
-      printTitles(v);
+   else if(strcmp(commandinput, "SEARCH") == 0) {
+      searchTitles(v);
    }
    else if(strcmp(commandinput, "DELETE") == 0){
       
@@ -35,21 +36,30 @@ int main(){
       running = false;
    }
    else {
-      cout << "Please enter a valid input";
+     cout << "Please enter a valid input" << endl;
    }
   
 }
 
 
 }
-void printTitles(vector<Media*> &newv){
-  for(vector<Media*>::iterator it = newv.begin(); it != newv.end(); it++) {
-    Media* printout = static_cast<Media*>(*it);
-    cout << (*it)->getTitle() << endl;
-    cout << (*it)->getYear() << endl;
-    /*
-    cout << (*printout)->getArtistName() << endl;
-    */
+void searchTitles(vector<Media*> &newv){
+  char searchcommand[100];
+  char searchtitle[100];
+  int searchyear;
+  cout << "Please enter TITLE if you wish to search by title and YEAR if you wish to search by year" << endl;
+  cin >> searchcommand;
+  if(strcmp(searchcommand, "TITLE") == 0) {
+    cout << "Please enter the title of the media that you are looking for" << endl;
+    cin >> searchtitle;
+    for(vector<Media*>:: iterator it = newv.begin(); it != newv.end(); ++it) {
+      //Change this please needs actual compare function
+      (*it)->print();
+    }
+  }
+  if(strcmp(searchcommand, "YEAR") == 0) {
+    cout << "Please enter the year of the media that you are looking for" << endl;
+    cin >> searchyear;
   }
 }
 void addMedia(vector<Media*> &newv){
@@ -61,16 +71,21 @@ void addMedia(vector<Media*> &newv){
   if(strcmp(mediatype, "Music") == 0) {
     Music* newmusic = new Music();
     char artist[100];
-      cout << "Please enter the title of your music" <<endl;
+    int inputduration;
+      cout << "Please enter the title of the music" <<endl;
       cin >> title;
       newmusic->Title(title);
-      cout << "Please enter the year that your music was created" << endl;
+      cout << "Please enter the year that the music was created in" << endl;
       cin >> yearpublished;
       newmusic->Year(yearpublished);
-      cout << "Please enter the artist that created your music" << endl;
+      cout << "Please enter the artist that created the music" << endl;
       cin >> artist;
       newmusic->addArtistName(artist);
-      newv.push_back(newmusic);  
+      cout << "Please enter the duration of the music" << endl;
+      cin >> inputduration;
+      newmusic->addDuration(inputduration);
+      newv.push_back(newmusic);
+      
   }
   
   
