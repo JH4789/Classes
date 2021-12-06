@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
-
+//Parent Media Class
 class Media {
   public:  
   virtual void Title(char*);
@@ -11,6 +11,7 @@ class Media {
   virtual void print();
   virtual char* getTitle();
   virtual int getYear();
+  virtual ~Media();
   protected:
   char* title;
   int year;
